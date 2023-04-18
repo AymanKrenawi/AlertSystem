@@ -1,0 +1,22 @@
+<input type="file" (change)="handleFileInput($event)">
+<table>
+    <thead>
+      <tr>
+        <th [contentEditable]="editMode" *ngFor="let header of table[0]">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of table.slice(1)">
+        <td [contentEditable]="editMode" *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </tbody>
+  </table>
+<button (click)="addRow()">Add Row</button>
+<div></div>
+<button (click)="addColumn()">Add Column</button>
+<div></div>
+<button (click)="edit()">Edit</button>
+<div></div>
+<button (click)="save()">Save</button>
+
+
