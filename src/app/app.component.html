@@ -1,60 +1,11 @@
 
-<style>
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-</style>
-
-
 <div class="content" role="main">
-
+  
   <a routerLink="/table-component" routerLinkActive="active" ariaCurrentWhenActive="page"></a>
-        <!-- <li><a routerLink="/second-component" routerLinkActive="active" ariaCurrentWhenActive="page">Second Component</a></li> -->
-
   
     <!-- The routed views render in the <router-outlet>-->
     <router-outlet></router-outlet>
   
 
-  </div>
-
-
-
-
- 
-
+</div>
 <router-outlet></router-outlet>

@@ -1,21 +1,25 @@
 <input type="file" (change)="handleFileInput($event)">
-<table>
-    <thead>
-      <tr>
-        <th [contentEditable]="editMode" *ngFor="let header of table[0]">{{ header }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of table.slice(1)">
-        <td [contentEditable]="editMode" *ngFor="let cell of row">{{ cell }}</td>
-      </tr>
-    </tbody>
-  </table>
+
+<table id="table" mat-table [dataSource]="dataSource"  class="mat-elevation-z8" matSort (matSortChange)="announceSortChange($event)"  #empTbSort="matSort">
+  <ng-container *ngFor="let column of displayedColumns; let i = index" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header> {{column}} </th>
+    <td  contenteditable="editeMode" mat-cell  *matCellDef="let element" (dblclick)="edit(element)">
+        {{element[i]}}      
+      <ng-template #editPlace>
+        <input [(ngModel)]="element[i].value" (blur)="update(element, i); " >
+      </ng-template>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+</table> 
+
+
 <button (click)="addRow()">Add Row</button>
 <div></div>
-<button (click)="addColumn()">Add Column</button>
+<button (click)="deleteRow()">Delete Row</button>
 <div></div>
-<button (click)="edit()">Edit</button>
+<button (click)="addColumn()">Add Column</button>
 <div></div>
 <button (click)="save()">Save</button>
 
